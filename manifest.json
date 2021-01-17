@@ -1,0 +1,21 @@
+{
+    "name": "Twitch Loot",
+    "version": "1.0",
+    "description": "AutoLoot twitch coin.",
+    "manifest_version": 2,
+    "icons": {
+      "128": "icon_128.png"
+    },
+    "background": {
+      "persistent": false,
+      "scripts": ["background_script.js"]
+    },
+    "permissions": ["https://*.twitch.tv/","https://*.ext-twitch.tv/", "activeTab"],
+    "browser_action": {
+      "default_icon": "icon_128.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://*.twitch.tv/*","https://*.ext-twitch.tv/*"],
+        "js": ["looter.js"]
+    }]
+  }
