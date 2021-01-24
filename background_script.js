@@ -1,10 +1,15 @@
-chrome.browserAction.setBadgeText({text: "0"});
+//chrome.browserAction.setBadgeText({text: "0"});
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     console.log(message,sender);
-    chrome.browserAction.getBadgeText({},function(t){
-        var nb = parseInt(t)+1;
-        chrome.browserAction.setBadgeText({text: nb.toString()});
-    });
+    if(message!==undefined && message.isLooted && sender.origin.match(/.*twitch.*/)!=null){
+        var tabId = sender.tab.id
+        chrome.browserAction.getBadgeText({tabId:tabId},function(t){
+            var nb = parseInt(t);
+            if(!nb>0){nb=0;}
+            nb++;
+            chrome.browserAction.setBadgeText({tabId:tabId,text: nb.toString()});
+        });
+    }
 });
 
 chrome.browserAction.onClicked.addListener(function(activeTab)

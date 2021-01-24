@@ -4,7 +4,9 @@
     "description": "AutoLoot twitch coin.",
     "manifest_version": 2,
     "icons": {
-      "128": "icon_128.png"
+      "128": "icon_128.png",
+      "256": "icon_256.png",
+      "512": "icon_512.png"
     },
     "background": {
       "persistent": false,
@@ -12,7 +14,7 @@
     },
     "permissions": ["https://*.twitch.tv/","https://*.ext-twitch.tv/", "activeTab"],
     "browser_action": {
-      "default_icon": "icon_128.png"
+      "default_icon": "icon_256.png"
     },
     "content_scripts": [{
         "matches": ["https://*.twitch.tv/*","https://*.ext-twitch.tv/*"],
