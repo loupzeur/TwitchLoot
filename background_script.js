@@ -1,4 +1,3 @@
-//chrome.browserAction.setBadgeText({text: "0"});
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     console.log(message,sender);
     if(message!==undefined && message.isLooted && sender.origin.match(/.*twitch.*/)!=null){
